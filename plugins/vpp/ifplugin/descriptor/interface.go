@@ -537,6 +537,8 @@ func (d *InterfaceDescriptor) Dependencies(key string, intf *interfaces.Interfac
 //  - configuration for every slave of a bonded interface
 //  - one empty value for every IP address to be assigned to the interface
 //  - one empty value for VRF table to put the interface into.
+//  - one empty value which will be created once at least one IP address is
+//    assigned to the interface.
 func (d *InterfaceDescriptor) DerivedValues(key string, intf *interfaces.Interface) (derValues []kvs.KeyValuePair) {
 	// unnumbered interface
 	if intf.GetUnnumbered() != nil {
@@ -603,6 +605,14 @@ func (d *InterfaceDescriptor) DerivedValues(key string, intf *interfaces.Interfa
 	}
 
 	// TODO: define derived value for UP/DOWN state (needed for subinterfaces)
+
+	// with-IP address (property)
+	if len(intf.GetIpAddresses()) > 0 {
+		derValues = append(derValues, kvs.KeyValuePair{
+			Key:   interfaces.InterfaceWithIPKey(intf.GetName()),
+			Value: &prototypes.Empty{},
+		})
+	}
 
 	return derValues
 }
