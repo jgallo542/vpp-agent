@@ -64,7 +64,7 @@ const (
 			on
 		}
 		socksvr {
-			default
+			socket-name /run/vpp-api.sock
 		}
 		statseg {
 			default
