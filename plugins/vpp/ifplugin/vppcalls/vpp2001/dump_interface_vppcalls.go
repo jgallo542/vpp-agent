@@ -551,6 +551,7 @@ func (h *InterfaceVppHandler) dumpMemifDetails(ifs map[uint32]*vppcalls.Interfac
 				}(memifSocketMap),
 				RingSize:   memifDetails.RingSize,
 				BufferSize: uint32(memifDetails.BufferSize),
+				NoZeroCopy: memifDetails.ZeroCopy,
 				// TODO: RxQueues, TxQueues - not available in the binary API
 				//RxQueues:
 				//TxQueues:

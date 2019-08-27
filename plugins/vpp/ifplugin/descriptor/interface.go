@@ -286,7 +286,8 @@ func (d *InterfaceDescriptor) equivalentMemifs(oldMemif, newMemif *interfaces.Me
 	if oldMemif.GetMode() != newMemif.GetMode() ||
 		oldMemif.GetMaster() != newMemif.GetMaster() ||
 		oldMemif.GetId() != newMemif.GetId() ||
-		oldMemif.GetSecret() != newMemif.GetSecret() {
+		oldMemif.GetSecret() != newMemif.GetSecret() ||
+		oldMemif.GetNoZeroCopy() != newMemif.GetNoZeroCopy() {
 		return false
 	}
 	// default values considered:

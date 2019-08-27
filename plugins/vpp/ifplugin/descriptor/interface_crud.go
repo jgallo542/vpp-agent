@@ -411,6 +411,7 @@ func (d *InterfaceDescriptor) Retrieve(correlate []adapter.InterfaceKVWithMetada
 				intf.Interface.GetMemif().Secret = expCfg.GetMemif().GetSecret()
 				intf.Interface.GetMemif().RxQueues = expCfg.GetMemif().GetRxQueues()
 				intf.Interface.GetMemif().TxQueues = expCfg.GetMemif().GetTxQueues()
+				intf.Interface.GetMemif().NoZeroCopy = expCfg.GetMemif().GetNoZeroCopy()
 				// if memif is not connected yet, ring-size and buffer-size are
 				// 1 and 0, respectively
 				if intf.Interface.GetMemif().GetRingSize() == 1 {

@@ -112,6 +112,7 @@ message MemifLink {
     uint32 buffer_size = 7;     /* size of the buffer allocated for each ring entry */
     uint32 rx_queues = 8;       /* number of rx queues (only valid for slave) */
     uint32 tx_queues = 9;       /* number of tx queues (only valid for slave) */
+    bool no_zero_copy = 10;     /* turn off memif zero copy mode */
 }
 
 message VxlanLink {

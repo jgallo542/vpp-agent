@@ -30,6 +30,7 @@ func (h *InterfaceVppHandler) AddMemifInterface(ifName string, memIface *interfa
 		RingSize:   memIface.RingSize,
 		RxQueues:   uint8(memIface.RxQueues),
 		TxQueues:   uint8(memIface.TxQueues),
+		NoZeroCopy: memIface.NoZeroCopy,
 	}
 	if memIface.Master {
 		req.Role = 0

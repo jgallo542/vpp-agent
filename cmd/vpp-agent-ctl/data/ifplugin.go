@@ -172,6 +172,7 @@ func (ctl *VppAgentCtlImpl) PutMemoryInterface() error {
 				Secret:         "secret",
 				Master:         true,
 				SocketFilename: "/tmp/memif1.sock",
+				NoZeroCopy: false,
 			},
 		},
 	}
