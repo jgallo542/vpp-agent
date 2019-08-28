@@ -41,6 +41,7 @@ COPY --from=devimg \
 
 # Copy configs
 COPY etcd.conf /opt/vpp-agent/dev/
+COPY govpp.conf /opt/vpp-agent/dev/
 COPY supervisor.conf /opt/vpp-agent/dev/
 COPY vpp.conf /etc/vpp/vpp.conf
 COPY init_hook.sh /usr/bin/

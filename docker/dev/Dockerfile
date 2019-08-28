@@ -80,6 +80,7 @@ COPY \
     ./docker/dev/logs.conf \
     ./docker/dev/vpp-ifplugin.conf \
     ./docker/dev/supervisor.conf \
+    ./docker/dev/govpp.conf \
  /opt/vpp-agent/dev/
 
 COPY ./docker/dev/vpp.conf /etc/vpp/vpp.conf
@@ -95,8 +96,6 @@ ARG DATE
 COPY . ./
 
 RUN VERSION=$VERSION COMMIT=$COMMIT DATE=$DATE make install
-
-ENV SUPERVISOR_CONFIG=/opt/vpp-agent/dev/supervisor.conf
 
 # run supervisor as the default executable
 CMD rm -f /dev/shm/db /dev/shm/global_vm /dev/shm/vpe-api && \
